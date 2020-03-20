@@ -19,10 +19,11 @@ println 'Hello, world!'
 ``` groovy
 var1 = 'Hello, world!'
 ```
+---------------
 
+Channels
+----
 
-### Channels
-------------
 Nextflow channels are used to connect logical tasks to each other
 
 There are diferent types of channels
@@ -47,4 +48,24 @@ This means that trying to view the channel twice will consume all the input (run
 p = channel.from(1,2,3,4,5)
 p.view()
 //p.view() running this a second time will fail
+```
+
+#### Of channel
+
+This will replace from channels and are easier to implement.
+The output from the channel can be viewed directly after creation as follows.
+
+```groovy
+Channel
+    .of(1..23, 'X', 'Y')
+    .view()
+```
+This will return values 1:23,'x','y'
+
+#### From path
+
+Channel.frompath can be used to access files sequentially.
+
+```groovy
+Channel.frompath('/dev/data/*.fa')
 ```
