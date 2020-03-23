@@ -64,8 +64,10 @@ This will return values 1:23,'x','y'
 
 #### From path
 
-Channel.frompath can be used to access files sequentially.
+Channel.fromPath can be used to access files sequentially.
 
 ```groovy
-Channel.frompath('/dev/data/*.fa')
+Channel.fromPath('/dev/data/*.fa')
 ```
+
+
