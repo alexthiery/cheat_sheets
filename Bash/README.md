@@ -13,6 +13,8 @@
 
 `for i in x; do echo i; done` standard bash loop format
 
+`ls -d $PWD/*` to get the absolute path from ls
+
 Pattern matching
 ===
 
