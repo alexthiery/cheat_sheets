@@ -8,3 +8,16 @@
 `export PATH="/path/to/file:$PATH"` - add this to end of ~/.bash_profile to add new variable to $PATH
 
 `seqtk sample -s100 read1.fq 10000 > sub1.fq` - this randomly subsets a number of reads (10k) from the original dataset for testing. Keeping the seed (-s) the same between samples ensures random reproducibility
+
+`ls -lh` lh flag provides information including r/w rights and file size
+
+`for i in x; do echo i; done` standard bash loop format
+
+Pattern matching
+===
+
+`a='~/dev/dir/temp.txt'; echo $a` prints '/dev/dir/temp.txt'
+
+`a='~/dev/dir/temp.txt'; b=$(basename $a); echo $b` prints 'temp.txt'
+
+`a='~/dev/dir/temp.txt'; b=$(basename $a); echo ${b%.*}` prints 'temp'
