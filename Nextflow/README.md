@@ -1,5 +1,10 @@
 ## Nextflow cheatsheet
 
+Nextflow on CAMP
+------
+`/camp/apps/misc/stp/babs/nf-core/singularity/rnaseq/1.4.2/nfcore-rnaseq-1.4.2.img` singularity containers stored here - use these to prevent building containers each time nextflow is run
+
+
 Syntax
 ------
 
