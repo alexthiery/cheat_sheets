@@ -1,4 +1,5 @@
-### Cheat sheet for common bash commands
+Cheat sheet for common bash commands
+===
 
 
 `echo $PATH` - view PATH variable
@@ -23,3 +24,19 @@ Pattern matching
 `a='~/dev/dir/temp.txt'; b=$(basename $a); echo $b` prints 'temp.txt'
 
 `a='~/dev/dir/temp.txt'; b=$(basename $a); echo ${b%.*}` prints 'temp'
+
+
+Conda
+===
+
+`conda create -n env_name` creates a new environment
+
+`conda env list` lists conda environments on system
+
+`conda activate env_name` activate conda environment
+
+`conda deactivate` deactivate conda environment
+
+`conda remove --name env_name --all` remove conda environment
+
+`conda list` view list of packages and versions installed in active environment
