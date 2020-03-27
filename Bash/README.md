@@ -41,4 +41,4 @@ Conda
 
 `conda list` view list of packages and versions installed in active environment
 
-`conda install -n <env_name> <package>
+`conda install -n <env_name> <package>` install packages in conda env
