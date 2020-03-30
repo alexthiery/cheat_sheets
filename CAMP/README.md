@@ -28,7 +28,28 @@ once in interactive session
 
 `conda create -n <env_name> r-base r-essentials r-devtools` make conda env as local. envs are stored in `/camp/lab/luscomben/working/alexthiery/conda` due to symlink
 
-`conda activate <env_name>` activate conda environment
+`source activate <env_name>` activate conda environment
+
+
+
+
+
+ml purge
+ml Anaconda2
+ml R/3.6.0-foss-2019a
+R
+
+Sys.setenv(RENV_PATHS_ROOT = "/camp/lab/luscomben/working/alexthiery/conda/")
+
+
+.libPaths("/camp/lab/luscomben/working/alexthiery/conda/envs/10x_r/lib/R/library")
+
+
+
+
+
+
+
 
 
 
