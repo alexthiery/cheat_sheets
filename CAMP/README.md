@@ -34,23 +34,5 @@ once in interactive session
 
 
 
-ml purge
-ml Anaconda2
-ml R/3.6.0-foss-2019a
-R
-
-Sys.setenv(RENV_PATHS_ROOT = "/camp/lab/luscomben/working/alexthiery/conda/")
-
-
-.libPaths("/camp/lab/luscomben/working/alexthiery/conda/envs/10x_r/lib/R/library")
-
-
-
-
-
-
-
-
-
 
 
