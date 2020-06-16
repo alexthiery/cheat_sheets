@@ -1,8 +1,9 @@
 Cheat sheet for common bash commands
 ===
 
+</br>
 
-$PATH variable
+## $PATH variable
 ===
 
 bash environment variables are HARDCODED into `~/.bash_profile`
@@ -24,8 +25,9 @@ appending `$PATH` variable in a bash session will not save the new `$PATH` to yo
 
 - `ls -d $PWD/*` to get the absolute path from ls
 
+</br>
 
-UNIX pattern matching
+## UNIX pattern matching
 ===
 
 - `a='~/dev/dir/temp.txt'; echo $a` prints '/dev/dir/temp.txt'
@@ -34,8 +36,9 @@ UNIX pattern matching
 
 - `a='~/dev/dir/temp.txt'; b=$(basename $a); echo ${b%.*}` prints 'temp'
 
+</br>
 
-Conda
+## Conda
 ===
 
 - `conda create -n <env_name>` creates a new environment
@@ -52,8 +55,9 @@ Conda
 
 - `conda install -n <env_name> <package>` install packages in conda env
 
+</br>
 
-Docker
+## Docker
 ===
 
 - `docker build -t <CONTAINER>:<TAG> <FOLDER CONTAINING DOCKERFILE>` -- build new image from docker file
