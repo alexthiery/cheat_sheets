@@ -33,6 +33,8 @@ once in interactive session
 
 
 
+generate usage report for current dir
 
+`sbatch -c 8 --wrap="find . -maxdepth 1 -type d | sed '1d' | xargs -P 8 -I% sh -c 'du -hs %' > 190620_lab_usage.txt"`
 
 

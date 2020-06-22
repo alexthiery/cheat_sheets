@@ -64,10 +64,18 @@ appending `$PATH` variable in a bash session will not save the new `$PATH` to yo
 
 - `docker images` -- View local images
 
+- `docker container create <CONTAINTER>:<TAG>` -- creates the container
+
+- `docker ps -a` -- lists all containers *including* stopped containers
+
+- `docker container start <CONTAINER>:<TAG>` -- restart stopped container
+
 - `docker run -it <CONTAINER>:<TAG> /bin/bash` -- Run a container with an interactive shell
 
-- `docker push <CONTAINER>:<TAG>` -- Pushes local image to docker hub
+- `docker container stop <CONTAINER>:<TAG>` -- stop container
 
-- `docker image prune` -- By default, docker image prune only cleans up dangling images. A dangling image is one that is not tagged and is not referenced by any container.
+- `docker container prune` -- remove all stopped containers
+
+- `docker image prune` -- by default, docker image prune only cleans up dangling images. A dangling image is one that is not tagged and is not referenced by any container.
 
 - `docker image prune -a` -- To remove all images which are not used by existing containers, use the -a flag
