@@ -25,6 +25,8 @@ appending `$PATH` variable in a bash session will not save the new `$PATH` to yo
 
 - `ls -d $PWD/*` to get the absolute path from ls
 
+- `rsync -azP <file> <target_dir>` to transfer files with a progress bar and checking contents of receiving folder
+
 </br>
 
 ## UNIX pattern matching
