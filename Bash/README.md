@@ -62,11 +62,11 @@ appending `$PATH` variable in a bash session will not save the new `$PATH` to yo
 ## Docker
 ***
 
-- `docker build -t <CONTAINER>:<TAG> <FOLDER CONTAINING DOCKERFILE>` -- build new image from docker file
+- `docker build -t <IMAGE>:<TAG> <FOLDER CONTAINING DOCKERFILE>` -- build new image from docker file
 
 - `docker images` -- View local images
 
-- `docker container create <CONTAINTER>:<TAG>` -- creates the container
+- `docker container create <IMAGE>:<TAG>` -- creates the container
 
 - `docker ps -a` -- lists all containers *including* stopped containers
 
@@ -81,3 +81,5 @@ appending `$PATH` variable in a bash session will not save the new `$PATH` to yo
 - `docker image prune` -- by default, docker image prune only cleans up dangling images. A dangling image is one that is not tagged and is not referenced by any container.
 
 - `docker image prune -a` -- To remove all images which are not used by existing containers, use the -a flag
+
+- `docker run --rm -e PASSWORD=test -p 8787:8787 -v <DIR TO MOUNT>:/home/rstudio <IMAGE>:<TAG>` -- run rstudio in browser with docker container
