@@ -7,6 +7,7 @@
 
 `srun --ntasks=1 --cpus-per-task=2 --partition=int --time=1:00:0 --mem=16G --pty bash` request an interactive session on CAMP
 
+`sbatch -c 8 --wrap="find . -maxdepth 1 -type d | sed '1d' | xargs -P 8 -I% sh -c 'du -hs %' > <FILE>.txt"` generate usage report for current dir
 
 
 make symlink from working to home dir
@@ -32,9 +33,14 @@ once in interactive session
 
 
 
+Singularity
+===
 
-generate usage report for current dir
+`ml Singularity/3.4.2` load singularity on camp
 
-`sbatch -c 8 --wrap="find . -maxdepth 1 -type d | sed '1d' | xargs -P 8 -I% sh -c 'du -hs %' > 190620_lab_usage.txt"`
+`singularity build /camp/home/thierya/working/singularity/<IMAGE>.img docker://<IMAGE>:<TAG>` build singularity image from docker
 
+`singularity shell <PATH_TO_IMAGE>` run shell script in container
+
+`singularity run --bind <VOLUME_TO_MOUNT>:/home` run script through singularity container
 
