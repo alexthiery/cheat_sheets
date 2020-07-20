@@ -70,9 +70,11 @@ appending `$PATH` variable in a bash session will not save the new `$PATH` to yo
 
 - `docker ps -a` -- lists all containers *including* stopped containers
 
-- `docker container start <CONTAINER>:<TAG>` -- restart stopped container
+- `docker container start <CONTAINER_ID>` -- restart stopped container
 
-- `docker run -it <CONTAINER>:<TAG> /bin/bash` -- Run a container with an interactive shell
+- `docker run -it <IMAGE>:<TAG> /bin/bash` -- Run a container with an interactive shell
+
+- `docker run -v <DIR TO MOUNT>:/home -it <IMAGE>:<TAG> /bin/bash` -- Run a container and mount volume
 
 - `docker container stop <CONTAINER>:<TAG>` -- stop container
 
