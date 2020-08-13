@@ -3,7 +3,7 @@
 
 `ssh thierya@login.camp.thecrick.org` ssh into camp
 
-`srun --ntasks=1 --cpus-per-task=2 --partition=int --time=1:00:0 --mem=16G --pty bash` request an interactive session on CAMP
+`srun --ntasks=1 --cpus-per-task=8 --partition=int --time=1:00:0 --mem=64G --pty bash` request an interactive session on CAMP
 
 `sbatch -c 8 --wrap="find . -maxdepth 1 -type d | sed '1d' | xargs -P 8 -I% sh -c 'du -hs %' > <FILE>.txt"` generate usage report for current dir
 
