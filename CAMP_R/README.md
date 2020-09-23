@@ -1,6 +1,6 @@
 #### Create new R environment on CAMP
 
-Create .aliases file in home directory, containing custom functions
+Create .aliases.sh file in home directory, containing custom functions
 ```
 #!/bin/bash
 
@@ -52,7 +52,7 @@ srun_rstudio
 
 Re-load custom functions in interactive node
 ```
-source ~/.aliases
+source ~/.aliases.sh
 ```
 
 Start rstudio session in singularity container
