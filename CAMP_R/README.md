@@ -1,4 +1,11 @@
-#### Create new R environment on CAMP
+#### Run R in Singularity container on CAMP
+
+Pull and build singularity container from dockerhub
+
+```
+cd ~/.singularity
+singularity pull docker://<IMAGE>:<TAG>
+```
 
 Create .aliases.sh file in home directory, containing custom functions
 ```
