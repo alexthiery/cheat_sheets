@@ -44,7 +44,9 @@ Singularity
 
 `ml Singularity/3.4.2` load singularity on camp
 
-`singularity pull /camp/home/thierya/.singularity/<IMAGE>.simg docker://<IMAGE>:<TAG>` build singularity image from docker
+`cd ~/.singularity` move to dir containing singularity images
+
+`singularity pull docker://<IMAGE>:<TAG>` build singularity image from docker
 
 `singularity shell <PATH_TO_IMAGE>` run shell script in container
 
