@@ -44,9 +44,8 @@ Singularity
 
 `ml Singularity/3.4.2` load singularity on camp
 
-`singularity build /camp/home/thierya/working/singularity/<IMAGE>.img docker://<IMAGE>:<TAG>` build singularity image from docker
+`singularity pull /camp/home/thierya/.singularity/<IMAGE>.simg docker://<IMAGE>:<TAG>` build singularity image from docker
 
 `singularity shell <PATH_TO_IMAGE>` run shell script in container
 
 `singularity run --bind <VOLUME_TO_MOUNT>:/home` run script through singularity container
-

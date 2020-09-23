@@ -1,128 +1,61 @@
 #### Create new R environment on CAMP
 
-login to CAMP
-``` bash
-ssh thierya@login.camp.thecrick.org
+Create .aliases file in home directory, containing custom functions
+```
+#!/bin/bash
+
+function singularity_rstudio(){
+	while [[ $# -gt 0 ]]
+	do
+	    case $1 in
+	    -v|--volume)
+	        local VOLUME="$2"
+	        ;;
+	    -c|--containder)
+	        local CONTAINER="$2"
+	        ;;
+	   	-p|--port)
+	        local PORT="$2"
+	        ;;
+	    esac
+	    shift
+	done
+
+	link=http://$SLURMD_NODENAME.camp.thecrick.org:$PORT
+
+	ml Singularity/2.6.0-foss-2016b
+	export PASSWORD='password'
+	export USERNAME=`id -un`
+
+	echo "The RStudio-Server will be running on this address:"
+	echo $link
+	echo "Username:" $USERNAME
+	echo "Password:" $PASSWORD
+
+	singularity exec -c -B $VOLUME:/home/rstudio $CONTAINER rserver --www-port $PORT --www-address 0.0.0.0 --auth-none=0 --auth-pam-helper-path=pam-helper
+
+}
+
+function srun_default() {
+	srun --ntasks=1 --cpus-per-task=2 --partition=int --time=1:00:0 --mem=16G --pty bash
+}
+
+function srun_rstudio() {
+	srun --ntasks=1 --cpus-per-task=8 --partition=int --time=1:00:0 --mem=32G --pty bash
+}
 ```
 
-start interactive session on cluster
-``` bash
-srun --ntasks=1 --cpus-per-task=2 --partition=int --time=1:00:0 --mem=16G --pty bash
+Start interactive session with 8cpus
+```
+srun_rstudio
 ```
 
-load modules
-``` bash
-ml purge
-ml Anaconda2
-ml R/3.6.0-foss-2019a
+Re-load custom functions in interactive node
+```
+source ~/.aliases
 ```
 
-create conda environment
-``` bash
-conda create -n <env_name> r-base r-essentials r-devtools
+Start rstudio session in singularity container
 ```
-
-load conda environment
-``` bash
-source activate <env_name>
+singularity_rstudio -v ~/scratch/repo-10x_neural_plate_border -c ~/.singularity/10x-modules-r_analysis-latest.simg -p 8787
 ```
-
-install renv in conda environment
-``` bash
-conda install -c conda-forge r-renv
-```
-
-cd to directory where r environment is to be created
-``` bash
-cd <dir_name>
-```
-
-start R interactively
-``` bash
-R
-```
-
-intialise renv
-``` R
-renv::init()
-```
-
-exit and restart R - whenever R is loaded from this directory, the custom r environment will be loaded
-``` R
-q()
-```
-``` bash
-R
-```
-
-install required R packages
-``` R
-
-install.packages('devtools')
-devtools::install_github("juliendelile/Antler")
-
-install.packages('dplyr')
-install.packages('cowplot')
-install.packages('clustree')
-install.packages('grid')
-install.packages('gridExtra')
-install.packages('pheatmap')
-
-install.packages('BiocManager')
-BiocManager::install('multtest')
-install.packages('Seurat')
-```
-
-then exit
-```R
-q()
-```
-``` bash
-exit
-```
-
-***
-#### Running script in sbatch mode
-
-make job script establishing sbatch conditions
-
-this requires activating the above conda environment, and calling the r script form the directory with the r environmnent installed
-``` bash
-#SBATCH -t 6:00:00
-#SBATCH --mem=0
-#SBATCH -c 10
-#SBATCH --job-name=10x_neural
-#SBATCH --mail-type=ALL,ARRAY_TASKS
-#SBATCH --mail-user=alex.thiery@crick.ac.uk
-
-ml purge
-ml Anaconda2
-ml R/3.6.0-foss-2019a
-source activate 10x_new
-cd ~/working/alexthiery/analysis/10x_scRNAseq_2019/test_repo
-Rscript ../repo/scripts/1_seurat_full.R CAMP
-```
-
-login to CAMP
-``` bash
-ssh thierya@login.camp.thecrick.org
-```
-
-copy job script to CAMP
-``` bash
-scp Desktop/job.sh /camp/lab/luscomben/working/alexthiery/analysis/dir
-```
-
-run job script
-``` bash
-sbatch /camp/lab/luscomben/working/alexthiery/analysis/dir/job.sh
-```
-
-
-
-
-
-
-
-
-
