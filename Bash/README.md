@@ -85,3 +85,17 @@ appending `$PATH` variable in a bash session will not save the new `$PATH` to yo
 - `docker image prune -a` -- To remove all images which are not used by existing containers, use the -a flag
 
 - `docker run --rm -e PASSWORD=test -p 8787:8787 -v <DIR TO MOUNT>:/home/rstudio <IMAGE>:<TAG>` -- run rstudio in browser with docker container
+
+
+</br>
+
+## Useful Bash commands
+***
+
+- `rsync -azvP --max-size=250m --exclude '*.bam.bai' --exclude '*.bam' <SRC_DIR> <DST_DIR>` -- rsync files but excluding files matching specific patterns. Also omits large files.
+
+
+
+
+
+

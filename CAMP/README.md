@@ -51,3 +51,29 @@ Singularity
 `singularity shell <PATH_TO_IMAGE>` run shell script in container
 
 `singularity run --bind <VOLUME_TO_MOUNT>:/home` run script through singularity container
+
+
+
+FTP transfer
+===
+
+In order to transfer data using FTP on CAMP, you need to use the ncftp client
+
+First start an interactive session
+
+``` 
+srun --ntasks=1 --cpus-per-task=1 --partition=int --time=16:00:0 --mem=16G --pty bash
+```
+
+
+`ml ncftp/3.2.6-foss-2016b` - load ncftp
+
+`ncftp -u <username> <hostname>` - login using ncftp
+
+
+Job submission info
+===
+
+Check submission time, start time etc.
+
+`sacct -j <job id> --format=JobID,JobName,Elapsed,Submit,Start,End`
