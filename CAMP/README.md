@@ -77,3 +77,15 @@ Job submission info
 Check submission time, start time etc.
 
 `sacct -j <job id> --format=JobID,JobName,Elapsed,Submit,Start,End`
+
+
+Upload data via ncftp - i.e. to EBI or GEO
+===
+
+Place all files in current dir into remote dir
+
+`ncftpput -u <usname> -p <pwd> <ftp_link> <remote_dir> *`
+
+Place all files in multiple dirs into remote dir
+
+`for dir in *; do cd $dir; ncftpput -u <usname> -p <pwd> <ftp_link> <remote_dir> *; cd ..; done`
